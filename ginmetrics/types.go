@@ -13,6 +13,13 @@ const (
 	Gauge
 	Histogram
 	Summary
+	MetricRequestTotal    = "gin_request_total"
+	MetricRequestUVTotal  = "gin_request_uv_total"
+	MetricURIRequestTotal = "gin_uri_request_total"
+	MetricRequestBody     = "gin_request_body_total"
+	MetricResponseBody    = "gin_response_body_total"
+	MetricRequestDuration = "gin_request_duration"
+	MetricSlowRequest     = "gin_slow_request_total"
 
 	defaultMetricPath = "/debug/metrics"
 	defaultSlowTime   = int32(5)
@@ -76,26 +83,6 @@ func (m *Monitor) SetSlowTime(slowTime int32) {
 // metric buckets.
 func (m *Monitor) SetDuration(duration []float64) {
 	m.reqDuration = duration
-}
-
-func (m *Monitor) SetMetricPrefix(prefix string) {
-	metricRequestTotal = prefix + metricRequestTotal
-	metricRequestUVTotal = prefix + metricRequestUVTotal
-	metricURIRequestTotal = prefix + metricURIRequestTotal
-	metricRequestBody = prefix + metricRequestBody
-	metricResponseBody = prefix + metricResponseBody
-	metricRequestDuration = prefix + metricRequestDuration
-	metricSlowRequest = prefix + metricSlowRequest
-}
-
-func (m *Monitor) SetMetricSuffix(suffix string) {
-	metricRequestTotal += suffix
-	metricRequestUVTotal += suffix
-	metricURIRequestTotal += suffix
-	metricRequestBody += suffix
-	metricResponseBody += suffix
-	metricRequestDuration += suffix
-	metricSlowRequest += suffix
 }
 
 // AddMetric add custom monitor metric.
