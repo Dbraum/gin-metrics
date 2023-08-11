@@ -90,6 +90,13 @@ func (m *Monitor) initGinMetrics() {
 		Description: fmt.Sprintf("the server handled slow requests counter, t=%d.", m.slowTime),
 		Labels:      []string{"uri", "method", "code"},
 	})
+
+	_ = monitor.AddMetric(&Metric{
+		Type:        Gauge,
+		Name:        MetricRequestLatency,
+		Description: "the time server took to handle the request.",
+		Labels:      []string{"uri", "method", "model"},
+	})
 }
 
 // monitorInterceptor as gin monitor middleware.

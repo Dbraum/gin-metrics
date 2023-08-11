@@ -14,6 +14,7 @@ const (
 	Histogram
 	Summary
 	MetricRequestTotal    = "gin_request_total"
+	MetricRequestLatency  = "gin_request_latency"
 	MetricRequestUVTotal  = "gin_request_uv_total"
 	MetricURIRequestTotal = "gin_uri_request_total"
 	MetricRequestBody     = "gin_request_body_total"
