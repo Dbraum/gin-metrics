@@ -21,6 +21,7 @@ const (
 	MetricResponseBody    = "gin_response_body_total"
 	MetricRequestDuration = "gin_request_duration"
 	MetricSlowRequest     = "gin_slow_request_total"
+	MetricTokenTotal      = "gin_token_total"
 
 	defaultMetricPath = "/debug/metrics"
 	defaultSlowTime   = int32(5)

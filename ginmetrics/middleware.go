@@ -97,6 +97,13 @@ func (m *Monitor) initGinMetrics() {
 		Description: "the time server took to handle the request.",
 		Labels:      []string{"uri", "method", "model"},
 	})
+
+	_ = monitor.AddMetric(&Metric{
+		Type:        Counter,
+		Name:        MetricTokenTotal,
+		Description: "the token send request num",
+		Labels:      []string{"token", "uri", "model"},
+	})
 }
 
 // monitorInterceptor as gin monitor middleware.
